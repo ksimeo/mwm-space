@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="mwm-space-admin:war">
+    <output-path>$PROJECT_DIR$/mwm-space-admin/target</output-path>
+    <root id="archive" name="MArsMarketAdmin.war">
+      <element id="artifact" artifact-name="mwm-space-admin:war exploded" />
+    </root>
+  </artifact>
+</component>

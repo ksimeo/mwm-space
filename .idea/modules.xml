@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/mwm-space-repository/marsexpress-rest.iml" filepath="$PROJECT_DIR$/mwm-space-repository/marsexpress-rest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mwm-space.iml" filepath="$PROJECT_DIR$/mwm-space.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mwm-space-admin/mwm-space-admin.iml" filepath="$PROJECT_DIR$/mwm-space-admin/mwm-space-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mwm-space-api/mwm-space-api.iml" filepath="$PROJECT_DIR$/mwm-space-api/mwm-space-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mwm-space-customers/mwm-space-customers.iml" filepath="$PROJECT_DIR$/mwm-space-customers/mwm-space-customers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mwm-space-entities/mwm-space-entities.iml" filepath="$PROJECT_DIR$/mwm-space-entities/mwm-space-entities.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mwm-space-impl/mwm-space-impl.iml" filepath="$PROJECT_DIR$/mwm-space-impl/mwm-space-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mwm-space-repository/mwm-space-repository.iml" filepath="$PROJECT_DIR$/mwm-space-repository/mwm-space-repository.iml" />
+    </modules>
+  </component>
+</project>

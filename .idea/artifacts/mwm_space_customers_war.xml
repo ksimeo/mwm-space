@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="mwm-space-customers:war">
+    <output-path>$PROJECT_DIR$/mwm-space-customers/target</output-path>
+    <root id="archive" name="mwm-space-customers-1.0.war">
+      <element id="artifact" artifact-name="mwm-space-customers:war exploded" />
+    </root>
+  </artifact>
+</component>

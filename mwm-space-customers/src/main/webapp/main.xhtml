@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>MarketSpace - Главная</title>
+    <h:outputStylesheet>
+        body {
+            background-color: darkgray;
+        }
+
+        #signboard {
+            text-align: center;
+            color: aquamarine;
+            background-color: dimgray;
+        }
+
+        #tagline {
+            text-align: left;
+            color: darkgray;
+        }
+    </h:outputStylesheet>
+</h:head>
+<h:body>
+    <h1 id="signboard">
+        Добро пожаловать в MarketSpace!
+    </h1>
+    <h3 id="tagline">MarketSpace - новое пространство ваших удачных приобретений</h3>
+    <hr/>
+    <br/>
+    <br/>
+    <!--<h:form>-->
+        <!--<h:inputText value="#{logicBean.a}"></h:inputText>-->
+        <!--<h:inputText value="#{logicBean.b}"></h:inputText>-->
+        <!--<h:commandButton value="summarize" action="#{logicBean.doSum}"></h:commandButton>-->
+    <!--</h:form>-->
+    <!--<h4> #{logicBean.sum}</h4>-->
+    <h:dataTable value="#{mainBean.types}" var="item">
+        <h:column>
+            <!--<f:facet name="header">-->
+                <!--<h:outputText value="Наименование" />-->
+            <!--</f:facet>-->
+            <h:outputText value="#{item.name}" />
+        </h:column>
+    </h:dataTable>
+</h:body>
+</html>

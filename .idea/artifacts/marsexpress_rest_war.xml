@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="marsexpress-rest:war">
+    <output-path>$PROJECT_DIR$/mwm-space-repository/target</output-path>
+    <root id="archive" name="MWM-Space_Repository_JavaEE.war">
+      <element id="artifact" artifact-name="marsexpress-rest:war exploded" />
+    </root>
+  </artifact>
+</component>
