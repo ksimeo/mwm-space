@@ -1,7 +1,7 @@
 package com.ksimeo.arsu.repository.controllers;
 
-import com.ksimeo.arsu.core.models.Basket;
-import com.ksimeo.arsu.repository.services.IBasketService;
+import com.ksimeo.arsu.entities.models.Basket;
+import com.ksimeo.arsu.repository.dao.BasketDao;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -19,27 +19,27 @@ import java.util.List;
 @Controller
 public class BasketsController {
     @Autowired
-    IBasketService basketService;
+    BasketDao basketDao;
 
     private ObjectMapper om = new ObjectMapper();
 
     @RequestMapping(value = "newbasket", method = RequestMethod.POST)
     @ResponseBody
     public void addNewBasket(@RequestBody Basket basket) {
-        basketService.save(basket);
+        basketDao.save(basket);
     }
 
     @RequestMapping(value = "getallbaskets", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE +
             ";charset=UTF-8")
     @ResponseBody
     public List<Basket> getAllBaskets() {
-        return basketService.getNew();
+        return basketDao.getNew();
     }
 
     @RequestMapping(value = "getneworders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE +
             ";charset=UTF-8")
     @ResponseBody
     public List<Basket> getNewOrders() {
-        return basketService.getNew();
+        return basketDao.getNew();
     }
 }

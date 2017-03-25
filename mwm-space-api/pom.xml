@@ -24,6 +24,14 @@
       <artifactId>javaee-web-api</artifactId>
       <version>7.0</version>
     </dependency>
+	  <!--Own projects-->
+	  <dependency>
+		  <groupId>com.ksimeo.arsu.entities</groupId>
+		  <artifactId>mwm-space-entities</artifactId>
+		  <!--<scope>system</scope>-->
+		  <!--<systemPath>${basedir}/lib/mars-market-core.jar</systemPath>-->
+		  <version>1.0</version>
+	  </dependency>
   </dependencies>
   <build>
     <finalName>MWM-Space_api_parth</finalName>

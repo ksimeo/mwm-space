@@ -2,7 +2,7 @@ package com.ksimeo.arsu.admin.services.impl;
 
 import com.ksimeo.arsu.admin.services.IUserService;
 import com.ksimeo.arsu.admin.services.impl.toSend.RestSender;
-import com.ksimeo.arsu.core.models.User;
+import com.ksimeo.arsu.entities.models.User;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import java.util.HashMap;

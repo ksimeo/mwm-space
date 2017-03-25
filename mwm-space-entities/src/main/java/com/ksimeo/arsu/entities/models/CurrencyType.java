@@ -1,4 +1,4 @@
-package com.ksimeo.arsu.core.models;
+package com.ksimeo.arsu.entities.models;
 
 /**
  * @author Ksimeo 22.08.2015.

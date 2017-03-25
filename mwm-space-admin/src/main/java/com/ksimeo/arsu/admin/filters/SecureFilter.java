@@ -1,6 +1,6 @@
 package com.ksimeo.arsu.admin.filters;
 
-import com.ksimeo.arsu.core.models.User;
+import com.ksimeo.arsu.entities.models.User;
 
 import javax.servlet.*;
 import javax.servlet.http.Cookie;

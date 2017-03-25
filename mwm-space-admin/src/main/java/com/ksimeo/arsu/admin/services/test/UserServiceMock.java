@@ -1,7 +1,7 @@
 package com.ksimeo.arsu.admin.services.test;
 
 import com.ksimeo.arsu.admin.services.IUserService;
-import com.ksimeo.arsu.core.models.User;
+import com.ksimeo.arsu.entities.models.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

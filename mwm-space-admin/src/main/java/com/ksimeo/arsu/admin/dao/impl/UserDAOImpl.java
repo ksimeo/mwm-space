@@ -3,8 +3,7 @@ package com.ksimeo.arsu.admin.dao.impl;
 import com.ksimeo.arsu.admin.dao.ConnectConf;
 import com.ksimeo.arsu.admin.dao.UserDAO;
 import com.ksimeo.arsu.admin.helpers.PasswCoder;
-import com.ksimeo.arsu.core.models.User;
-import org.springframework.stereotype.Repository;
+import com.ksimeo.arsu.entities.models.User;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +13,7 @@ import java.sql.ResultSet;
 /**
  * Created by @author Ksimeo on 29.03.2016 at 17:40. For project: marsexpress-space.
  */
-@Repository
+//@Repository
 public class UserDAOImpl implements UserDAO {
     @Override
     public User save(User user) {

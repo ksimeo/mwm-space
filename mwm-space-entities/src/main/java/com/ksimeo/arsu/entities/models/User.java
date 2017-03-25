@@ -1,4 +1,4 @@
-package com.ksimeo.arsu.core.models;
+package com.ksimeo.arsu.entities.models;
 
 import javax.persistence.*;
 

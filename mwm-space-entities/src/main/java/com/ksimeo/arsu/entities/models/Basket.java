@@ -1,15 +1,13 @@
-package com.ksimeo.arsu.core.models;
+package com.ksimeo.arsu.entities.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.*;
 
 /**
  * @author Ksimeo 25.08.2015.
  */
-@Entity(name = "baskets")
+@Entity
+@Table(name = "baskets")
 public class Basket {
     @Id
     @GeneratedValue
@@ -29,14 +27,6 @@ public class Basket {
     @Column
     private boolean isConsider;
 
-    public boolean isConsider() {
-        return isConsider;
-    }
-
-    public void setIsConsider(boolean isConsider) {
-        this.isConsider = isConsider;
-    }
-
     private volatile static Basket basket;
 
     public Basket() {
@@ -48,14 +38,6 @@ public class Basket {
         this.telnumber = telnumber;
         this.orders = orders;
     }
-
-//    public Basket(int id, String name, String surname, String telnumber, String email) {
-//        this.id = id;
-//        this.name = name;
-//        this.surname = surname;
-//        this.telnumber = telnumber;
-//        this.email = email;
-//    }
 
     public Basket(int id, String name, String surname, String telnumber, String email, Map<Product, Integer> orders) {
         this.id = id;
@@ -171,9 +153,6 @@ public class Basket {
             tmp = iter.next();
             if (tmp.getKey().getId() == prod.getId()) iter.remove();
         }
-//        orders.remove(prod);
-//        System.err.println("Продукт был удален из корзины! doGet");
-//        System.out.println(orders);
     }
 
     public void changeQuant(int prodID, int quant) {
@@ -200,4 +179,13 @@ public class Basket {
         }
         return summ;
     }
+
+    public boolean isConsider() {
+        return isConsider;
+    }
+
+    public void setIsConsider(boolean isConsider) {
+        this.isConsider = isConsider;
+    }
+
 }

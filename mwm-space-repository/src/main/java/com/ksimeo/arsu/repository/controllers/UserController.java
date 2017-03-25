@@ -1,9 +1,11 @@
 package com.ksimeo.arsu.repository.controllers;
 
-import com.ksimeo.arsu.core.models.User;
-import com.ksimeo.arsu.repository.services.IUserService;
+import com.ksimeo.arsu.entities.models.User;
+import com.ksimeo.arsu.repository.dao.UserDao;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -22,24 +24,10 @@ import java.util.Map;
 @Controller
 public class UserController {
     @Autowired
-    private IUserService userService;
+    private UserDao userDao;
     private ObjectMapper objectMapper = new ObjectMapper();
 
-
-//    @RequestMapping(value = "/getuser", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE +
-//            ";charset=UTF-8", produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
-//    @ResponseBody
-//    public User getUserById(@RequestBody String jsonData) {
-//        try {
-//            ObjectMapper om = new ObjectMapper();
-//            Map<String, String> usermap = om.readValue(jsonData, new TypeReference<Map<String, String>>() { });
-//            System.out.println(usermap);
-//            return new User(1, "Ars", "#1234", "Арсен", "Тумоян", true);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
+    Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @RequestMapping(value = "getuser", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8",
             produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
@@ -48,12 +36,13 @@ public class UserController {
         try {
             Map<String, String> datamap = objectMapper.readValue(jsonData, new TypeReference<Map<String, String>>() { });
             String login = datamap.get("login");
+            logger.debug("got login: {}", login);
             String passw = datamap.get("password");
-            User result = userService.getOne(login, passw);
-            System.out.println(result);
-            return result;
+            User res = userDao.getOne(login, passw);
+            logger.debug("Send data:{}", res);
+            return res;
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("getUser()");
             return null;
         }
     }
@@ -61,53 +50,27 @@ public class UserController {
     @RequestMapping(value = "checkuser", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8",
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public String checkUser(@RequestBody String jsonData) throws IOException {
+    public boolean checkUser(@RequestBody String jsonData) throws IOException {
         try {
             System.out.println(jsonData);
             Map<String, String> datamap = objectMapper.readValue(jsonData, new TypeReference<Map<String, String>>() { });
             System.out.println(datamap);
             String login = datamap.get("login");
             String passw = datamap.get("password");
-            String res = userService.checkStatus("login", "password");
-            System.out.println("Отправляемые данные:" + res);
-            return res;
+            logger.debug("got login: {}", login);
+            User res = userDao.getOne("login", "password");
+            return res.isAdmin();
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            logger.error("error checkUser()");
+            return false;
         }
-    }
-
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    @ResponseBody
-    public String test() {
-        System.out.println("запрос получен!");
-        return "NULL";
     }
 
     @RequestMapping(value = "/getallusers", method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
     @ResponseBody
     public List<User> getUsers() {
-        return userService.getAll();
+        logger.debug("getUsers()");
+        return (List<User>) userDao.findAll();
     }
-
-//    @RequestMapping(value = "getuser", method = RequestMethod.GET,
-//            produces = MediaType.APPLICATION_JSON_VALUE + ";charset=UTF-8")
-//    @ResponseBody
-//    public User getUser() throws IOException {
-//        try {
-//            ObjectMapper om = new ObjectMapper();
-////            Map<String, String> datamap = om.readValue(jsonData, new TypeReference<Map<String, String>>() { });
-////            String login = datamap.get("login");
-////            String passw = datamap.get("password");
-//            User res = userService.getOne("login", "passw");
-////            String data = om.writeValueAsString(res);
-//            System.out.println(res);
-//            return res;
-////            System.out.println(usermap);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
 }

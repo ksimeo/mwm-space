@@ -1,6 +1,6 @@
 package com.ksimeo.arsu.admin.services;
 
-import com.ksimeo.arsu.core.models.User;
+import com.ksimeo.arsu.entities.models.User;
 
 import java.util.List;
 
